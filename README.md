@@ -1,7 +1,7 @@
 # Music Recommender
 > Data Science minor final project
 
-[**Link**](vk.cc/9v83UO) to Shiny application zip. Includes:
+[**Link**](https://vk.cc/9v83UO) to Shiny application zip. Includes:
 - app.R - application
 - w2v_90m - word2vec model *(3 files due to model size)*
 - artistsChoice.csv - list of artists *(for app input)*
@@ -11,7 +11,7 @@
 - **notebooks** - notebooks
 - **slides** - presentations
 - **other** - code snippets and other stuff
-- **app** - ~shiny application~ 🚧 --> vk.cc/9v83UO 
+- **app** - ~shiny application~ 🚧 --> https://vk.cc/9v83UO
 
 
 # Data 
