@@ -3,11 +3,11 @@
 
 [**Link**](https://vk.cc/9v83UO) to Shiny application zip. Includes:
 - app.R - application
-- w2v_90m - word2vec model *(3 files due to model size)*
-- artistsChoice.csv - list of artists *(for app input)*
+- w2v_90m - word2vec model trained on full dataset *(3 files due to model size)*
+- artistsChoice.csv - list of artists *(for app's input)*
 
 # Repository structure
-- **models** - word2vec models; 10M only
+- **models** - word2vec models; (includes only the one trained on 10M)  
 - **notebooks** - notebooks
 - **slides** - presentations
 - **other** - code snippets and other stuff
@@ -15,7 +15,7 @@
 
 
 # Data 
-Data: song playlists from SNs  
+Data: song playlists from russian SNs, including ~950K users and 90M user-item pairs in total.  
 Example:
 
 | user_id | song                      | artist         |
@@ -32,13 +32,13 @@ Example:
 
 
 # Methods
-Method: word2vec skip-gram  
-Idea: Each user's playlist is represented as a sentence, and if artists appear in the same playlists, they are similar and belong to the same context. The model takes artists as an input *(from one)*, and recommends *n* artists.   
+**Method**: word2vec skip-gram  
+**Idea**: Each user's playlist is represented as a sentence, and if artists appear in the same playlists, they are similar and belong to the same context. The model takes artists *(at least one)* as an input, and recommends *n* artists.   
 
-The final model was trained on full dataset: approximately 90 000 000 user-item, 950 000 users, 9 hours.  
+The final model was trained on full dataset: approximately 90 000 000 user-item, ~ 950 000 users, time: 9 hours.  
 
 # Examples
-Case: something epic for the one who loves Game of Thrones
+**Case**: something epic for the one who loves Game of Thrones
 ```python
 model_w2v.wv.most_similar('ramin djawadi', topn=10)
 ```
@@ -60,7 +60,7 @@ Model recommends other authors of soundtracks. Interesting case: soundtrack to '
 ```
 
 
-Case: the one who listens to placebo and radiohead and is not in a good mood
+**Case:** the one who listens to placebo and radiohead and is not in a good mood
 ```python
 placebo_sim = [a[0].strip() for a in model_w2v.wv.most_similar(['placebo'], topn=15)]
 placebo_sim
